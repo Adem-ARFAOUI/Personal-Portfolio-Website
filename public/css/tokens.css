@@ -1,0 +1,319 @@
+/* ============================================================
+   DESIGN TOKENS
+   Dark-first "developer" aesthetic: deep charcoal-navy surfaces,
+   an indigo/mint accent pair, and monospace used deliberately for
+   labels & tags — like comments and tokens in a code editor.
+   ============================================================ */
+:root {
+  /* Dark theme (default) */
+  --bg: #0c0e13;
+  --bg-soft: #10131a;
+  --surface: #151822;
+  --surface-2: #1b1f2b;
+  --border: #262b39;
+  --border-soft: #1e2230;
+  --text: #e9ebf2;
+  --text-muted: #9296a8;
+  --text-faint: #5c6072;
+  --accent: #6d8fff;
+  --accent-strong: #557aff;
+  --accent-soft: rgba(109, 143, 255, 0.12);
+  --mint: #4fe0a8;
+  --mint-soft: rgba(79, 224, 168, 0.12);
+  --danger: #ff6b6b;
+  --danger-soft: rgba(255, 107, 107, 0.12);
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 8px 30px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 0 1px rgba(109, 143, 255, 0.25), 0 8px 30px rgba(109, 143, 255, 0.12);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --container: 1180px;
+  --nav-h: 72px;
+
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #f6f7fa;
+  --bg-soft: #eef0f4;
+  --surface: #ffffff;
+  --surface-2: #f2f3f7;
+  --border: #e2e4ec;
+  --border-soft: #ebedf3;
+  --text: #14161f;
+  --text-muted: #5b5f70;
+  --text-faint: #8b8fa0;
+  --accent: #3457e8;
+  --accent-strong: #2544c9;
+  --accent-soft: rgba(52, 87, 232, 0.08);
+  --mint: #0ea678;
+  --mint-soft: rgba(14, 166, 120, 0.1);
+  --danger: #e0453f;
+  --danger-soft: rgba(224, 69, 63, 0.08);
+
+  --shadow-1: 0 1px 2px rgba(20, 22, 31, 0.06);
+  --shadow-2: 0 8px 30px rgba(20, 22, 31, 0.08);
+  --shadow-glow: 0 0 0 1px rgba(52, 87, 232, 0.15), 0 8px 30px rgba(52, 87, 232, 0.1);
+
+  color-scheme: light;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* The `hidden` attribute must always win, even over classes that set their
+   own `display` (e.g. .modal-backdrop { display: flex }). Without this,
+   toggling `element.hidden = true/false` in JS has no visible effect on
+   any element whose class also sets a display value. */
+[hidden] {
+  display: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Subtle blueprint-grid background: nods to "building" digital things */
+body {
+  background-image: radial-gradient(circle at 1px 1px, var(--border-soft) 1px, transparent 0);
+  background-size: 34px 34px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Typography ---------- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  margin-bottom: 14px;
+}
+
+.eyebrow::before {
+  content: "//";
+  color: var(--text-faint);
+}
+
+.section-head {
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+
+.section-head h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  margin-bottom: 12px;
+}
+
+.section-head p {
+  color: var(--text-muted);
+  font-size: 17px;
+}
+
+section {
+  padding: 108px 0;
+  position: relative;
+}
+
+@media (max-width: 720px) {
+  section {
+    padding: 76px 0;
+  }
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 14.5px;
+  border: 1px solid transparent;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #0a0c11;
+}
+[data-theme="light"] .btn-primary {
+  color: #fff;
+}
+
+.btn-primary:hover {
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 9px 18px;
+  font-size: 13px;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* ---------- Utility ---------- */
+.mono {
+  font-family: var(--font-mono);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--surface) 25%, var(--surface-2) 37%, var(--surface) 63%);
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+  border-radius: var(--radius-sm);
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.empty-state {
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14.5px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

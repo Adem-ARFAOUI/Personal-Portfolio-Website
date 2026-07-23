@@ -1,0 +1,124 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "adem.arfaoui2018@gmail.com",
+      "passwordHash": "$2a$12$xWt8PIEA.q840f3p3vKdJuVWP9EnGRZlU4.cGeQhTBLSkttEy0dOi",
+      "role": "admin"
+    }
+  ],
+  "projects": [
+    {
+      "id": 2,
+      "title": "Portfolio Website",
+      "description": "A full-stack personal portfolio with a built-in admin panel to manage projects, blog posts, and contact messages with no code required.",
+      "image": "/uploads/1784825379236-capture-d-cran-2026-07-23-174928.png",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Node.js",
+        "Express",
+        "JWT",
+        "bcrypt",
+        "Multer",
+        "Nodemailer",
+        "JSON"
+      ],
+      "category": "Web App",
+      "githubUrl": "",
+      "liveUrl": "",
+      "featured": false,
+      "order": 2
+    },
+    {
+      "id": 3,
+      "title": "AI Life OS",
+      "description": " AI-powered decision intelligence platform",
+      "image": "/uploads/1784825470528-capture-d-cran-2026-06-20-011347.png",
+      "tags": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Render",
+        "Google Gemini AI Api"
+      ],
+      "category": " AI-powered Platform",
+      "githubUrl": "https://github.com/Adem-ARFAOUI/AI-Life-OS-.git",
+      "liveUrl": "https://ai-life-os-6ebk.onrender.com/",
+      "featured": false,
+      "order": 0
+    },
+    {
+      "id": 4,
+      "title": "Now Showing ",
+      "description": "A full-stack web application for browsing movies and managing user reviews ",
+      "image": "/uploads/1784827353829-capture-d-cran-2026-07-23-182152.png",
+      "tags": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "JavaScript",
+        "REST APIs"
+      ],
+      "category": "Web app",
+      "githubUrl": "https://github.com/Adem-ARFAOUI/Now-Showing-Movie-app.git",
+      "liveUrl": "https://now-showing-movie-app.onrender.com/",
+      "featured": false,
+      "order": 0
+    },
+    {
+      "id": 5,
+      "title": "Job Fair 2026 Website",
+      "description": "Created a responsive website for a university job fair event.",
+      "image": "/uploads/1784827836344-capture-d-cran-2026-07-01-174733.png",
+      "tags": [
+        "React",
+        "JavaScript",
+        "CSS",
+        "Tailwind CSS"
+      ],
+      "category": "Web app",
+      "githubUrl": "https://github.com/Adem-ARFAOUI/Job-Fair-2026-Final-version.git",
+      "liveUrl": "https://job-fair-2026-final-version.onrender.com",
+      "featured": false,
+      "order": 0
+    },
+    {
+      "id": 6,
+      "title": "WordPress Portfolio",
+      "description": "Designed and deployed a professional portfolio website presenting web development and AIprojects.",
+      "image": "/uploads/1784828045925-capture-d-cran-2026-07-01-160441.png",
+      "tags": [
+        "WordPress",
+        "Elementor",
+        "HTML",
+        "CSS"
+      ],
+      "category": "WordPress app",
+      "githubUrl": "",
+      "liveUrl": "https://firstwordpresssite.infinityfree.io/wp/",
+      "featured": false,
+      "order": 0
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "Welcome to my blog",
+      "slug": "welcome-to-my-blog",
+      "excerpt": "A short note on why I started writing about what I build.",
+      "content": "I started writing here to document my journey in technology and share what I learn along the way. From building full-stack applications to exploring AI, data, and automation, I use this space to share my experiments, challenges, and discoveries.\n\nEvery project teaches me something new, and this blog is where I share that journey with others.",
+      "coverImage": "/uploads/1784828264557-chatgpt-image-1-juil-2026-19-04-00.png",
+      "published": true,
+      "createdAt": "2026-07-19T00:00:00.000Z",
+      "updatedAt": "2026-07-23T17:37:46.974Z"
+    }
+  ],
+  "messages": [],
+  "settings": {
+    "cvFile": "/cv/cv.pdf"
+  }
+}

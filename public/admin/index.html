@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Adem Arfaoui</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="/images/dm.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/sections.css">
+  <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body data-theme="dark">
+
+  <!-- ======= LOGIN VIEW ======= -->
+  <div class="login-screen" data-view="login">
+    <form class="login-card" data-login-form>
+      <div class="login-logo mono">~/adem<span class="cursor"></span></div>
+      <h1>Admin sign in</h1>
+      <p class="text-muted">Manage your projects, blog, and messages.</p>
+      <div class="field">
+        <label for="login-email">Email</label>
+        <input id="login-email" name="email" type="email" required autocomplete="username">
+      </div>
+      <div class="field">
+        <label for="login-password">Password</label>
+        <input id="login-password" name="password" type="password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Sign in</button>
+      <p class="form-status" data-login-status></p>
+    </form>
+  </div>
+
+  <!-- ======= DASHBOARD VIEW ======= -->
+  <div class="dash" data-view="dashboard" hidden>
+    <aside class="dash-sidebar">
+      <div class="dash-logo mono">~/adem<span class="cursor"></span></div>
+      <nav class="dash-nav">
+        <button class="dash-nav-item active" data-tab="projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Projects
+        </button>
+        <button class="dash-nav-item" data-tab="blog">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
+          Blog
+          <span class="badge-count" data-count="blog"></span>
+        </button>
+        <button class="dash-nav-item" data-tab="messages">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Messages
+          <span class="badge-count" data-count="messages"></span>
+        </button>
+        <button class="dash-nav-item" data-tab="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Settings
+        </button>
+      </nav>
+      <a href="/" class="dash-nav-item" style="margin-top:auto;" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+        View site
+      </a>
+      <button class="dash-nav-item" data-logout>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sign out
+      </button>
+    </aside>
+
+    <main class="dash-main">
+      <header class="dash-header">
+        <div>
+          <h1 data-tab-title>Projects</h1>
+          <p class="text-muted mono" data-signed-in-as></p>
+        </div>
+        <button class="btn btn-primary" data-add-btn>+ New project</button>
+      </header>
+
+      <!-- Projects tab -->
+      <section class="dash-panel" data-panel="projects">
+        <div class="dash-table-wrap">
+          <table class="dash-table" data-projects-table>
+            <thead>
+              <tr><th></th><th>Title</th><th>Category</th><th>Tags</th><th>Featured</th><th></th></tr>
+            </thead>
+            <tbody data-projects-tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Blog tab -->
+      <section class="dash-panel" data-panel="blog" hidden>
+        <div class="dash-table-wrap">
+          <table class="dash-table" data-posts-table>
+            <thead>
+              <tr><th>Title</th><th>Status</th><th>Date</th><th></th></tr>
+            </thead>
+            <tbody data-posts-tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Messages tab -->
+      <section class="dash-panel" data-panel="messages" hidden>
+        <div class="messages-list" data-messages-list></div>
+      </section>
+
+      <!-- Settings tab -->
+      <section class="dash-panel" data-panel="settings" hidden>
+        <div class="settings-card">
+          <h3>CV / Resume</h3>
+          <p class="text-muted">Upload a PDF. It replaces whatever is currently linked from the "Download CV" button on your site.</p>
+          <div class="settings-row">
+            <span class="mono" data-cv-current>No CV uploaded yet</span>
+            <label class="btn btn-outline btn-sm file-btn">
+              Upload PDF
+              <input type="file" accept="application/pdf" data-cv-input hidden>
+            </label>
+          </div>
+        </div>
+        <div class="settings-card">
+          <h3>Account</h3>
+          <p class="text-muted">To change your admin email or password, edit <code>.env</code> on the server and run <code class="mono">npm run seed</code> again.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ======= PROJECT MODAL ======= -->
+  <div class="modal-backdrop" data-project-modal hidden>
+    <form class="modal-card" data-project-form>
+      <div class="modal-head">
+        <h3 data-project-modal-title>New project</h3>
+        <button type="button" class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="field">
+          <label>Title</label>
+          <input name="title" type="text" required>
+        </div>
+        <div class="field">
+          <label>Description</label>
+          <textarea name="description" required></textarea>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>Category</label>
+            <input name="category" type="text" placeholder="Web App">
+          </div>
+          <div class="field">
+            <label>Tags (comma separated)</label>
+            <input name="tags" type="text" placeholder="React, Node, MongoDB">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>GitHub URL</label>
+            <input name="githubUrl" type="url" placeholder="https://github.com/...">
+          </div>
+          <div class="field">
+            <label>Live URL</label>
+            <input name="liveUrl" type="url" placeholder="https://...">
+          </div>
+        </div>
+        <div class="field">
+          <label>Cover image</label>
+          <div class="image-upload-row">
+            <img data-project-image-preview class="image-preview" hidden>
+            <label class="btn btn-outline btn-sm file-btn">
+              Choose image
+              <input type="file" accept="image/*" data-project-image-input hidden>
+            </label>
+            <input type="hidden" name="image">
+          </div>
+        </div>
+        <label class="checkbox-row">
+          <input type="checkbox" name="featured">
+          Feature this project
+        </label>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-outline" data-close-modal>Cancel</button>
+        <button type="submit" class="btn btn-primary">Save project</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- ======= POST MODAL ======= -->
+  <div class="modal-backdrop" data-post-modal hidden>
+    <form class="modal-card" data-post-form>
+      <div class="modal-head">
+        <h3 data-post-modal-title>New post</h3>
+        <button type="button" class="modal-close" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="field">
+          <label>Title</label>
+          <input name="title" type="text" required>
+        </div>
+        <div class="field">
+          <label>Excerpt (optional — auto-generated if left blank)</label>
+          <input name="excerpt" type="text">
+        </div>
+        <div class="field">
+          <label>Cover image (optional)</label>
+          <div class="image-upload-row">
+            <img data-post-image-preview class="image-preview" hidden>
+            <label class="btn btn-outline btn-sm file-btn">
+              Choose image
+              <input type="file" accept="image/*" data-post-image-input hidden>
+            </label>
+            <input type="hidden" name="coverImage">
+          </div>
+        </div>
+        <div class="field">
+          <label>Content (plain text or basic HTML)</label>
+          <textarea name="content" rows="10" required></textarea>
+        </div>
+        <label class="checkbox-row">
+          <input type="checkbox" name="published" checked>
+          Published (visible on the site)
+        </label>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-outline" data-close-modal>Cancel</button>
+        <button type="submit" class="btn btn-primary">Save post</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="/js/toast.js"></script>
+  <script src="/admin/js/admin.js"></script>
+</body>
+</html>
