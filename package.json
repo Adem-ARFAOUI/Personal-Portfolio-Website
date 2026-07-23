@@ -1,5 +1,5 @@
 {
-  "name": "amine-portfolio",
+  "name": "adem-portfolio",
   "version": "1.0.0",
   "description": "Personal portfolio site with a small backend (projects, blog, contact form, admin dashboard).",
   "main": "server/index.js",
