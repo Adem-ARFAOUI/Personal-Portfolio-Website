@@ -19,9 +19,11 @@ cloudinary.config({
 });
 
 function assertCloudinaryConfigured() {
-  const missing = ["CLOUDINARY_CLOUD_NAME", "CLOUDINARY_API_KEY", "CLOUDINARY_API_SECRET"].filter(
-    (key) => !process.env[key],
-  );
+  const missing = [
+    "CLOUDINARY_CLOUD_NAME",
+    "CLOUDINARY_API_KEY",
+    "CLOUDINARY_API_SECRET",
+  ].filter((key) => !process.env[key]);
   if (missing.length) {
     throw new Error(
       `Cloudinary is not configured. Missing env vars: ${missing.join(", ")}. ` +
@@ -73,7 +75,9 @@ router.post("/image", requireAdmin, (req, res) => {
       res.json({ url: result.secure_url });
     } catch (uploadErr) {
       console.error("Cloudinary image upload failed:", uploadErr);
-      res.status(500).json({ error: uploadErr.message || "Image upload failed." });
+      res
+        .status(500)
+        .json({ error: uploadErr.message || "Image upload failed." });
     }
   });
 });
@@ -87,8 +91,9 @@ router.post("/cv", requireAdmin, (req, res) => {
       const result = await uploadBufferToCloudinary(req.file.buffer, {
         folder: "portfolio/cv",
         resource_type: "raw",
-        public_id: "cv",
+        public_id: "cv.pdf",
         overwrite: true,
+        invalidate: true,
       });
       await db.setSettings({ cvFile: result.secure_url });
       res.json({ url: result.secure_url });
